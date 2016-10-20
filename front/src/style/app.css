@@ -1,0 +1,6 @@
+/* styles in src/style directory are applied to the whole page */
+
+footer {
+  text-align: center;
+  font-size: 0.8em;
+}
