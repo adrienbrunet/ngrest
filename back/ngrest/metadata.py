@@ -62,7 +62,7 @@ class NgMetadata(SimpleMetadata):
     })
 
     option_name_lookup = {
-        'help_text': 'placeholder',
+        'help_text': 'description',
         'label': 'label',
         'min_value': 'min',
         'max_value': 'max',
