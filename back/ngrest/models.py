@@ -13,7 +13,7 @@ class People(models.Model):
     name = models.CharField(max_length=255)
     age = models.PositiveIntegerField(blank=True, null=True)
     email = models.EmailField()
-    is_this_form_dumb = models.BooleanField()
+    is_this_form_dumb = models.BooleanField(default=False)
     best_friend = models.ForeignKey('People', null=True, blank=True)
     favorite_color = models.CharField(max_length=50, choices=COLORS)
     favorite_int = models.IntegerField(validators=[MinValueValidator(10), MaxValueValidator(100)],
