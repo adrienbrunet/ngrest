@@ -79,10 +79,11 @@ class NgMetadata(SimpleMetadata):
         }
         field_info = OrderedDict([
             ('key', field.field_name),
+            ('type', self.label_lookup[field]),
             ('hide', field.field_name in ['id', 'pk']),
             ('templateOptions', template_options),
         ])
-        field_info['type'] = self.label_lookup[field]
+
         if field.default is not empty:
             field_info['defaultValue'] = getattr(field, 'default', None)
 
