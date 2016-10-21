@@ -68,27 +68,13 @@ class NgMetadata(SimpleMetadata):
         'max_value': 'max',
     }
 
-    def get_serializer_info(self, serializer):
-        """
-        Given an instance of a serializer, return a dictionary of metadata
-        about its fields.
-        """
-        if hasattr(serializer, 'child'):
-            # If this is a `ListSerializer` then we want to examine the
-            # underlying child serializer instance instead.
-            serializer = serializer.child
-        return [
-            self.get_field_info(field, field_name)
-            for field_name, field in serializer.fields.items()
-        ]
-
-    def get_field_info(self, field, field_name):
+    def get_field_info(self, field):
         """
         Given an instance of a serializer field, return a dictionary
         of metadata about it.
         """
         field_info = OrderedDict([
-            ('key', field_name),
+            ('key', field.field_name),
             ('templateOptions', {}),
         ])
         field_info['type'] = self.label_lookup[field]
