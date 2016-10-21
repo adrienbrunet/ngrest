@@ -6,8 +6,8 @@ from django.utils.encoding import force_text
 
 from rest_framework import serializers
 from rest_framework.fields import empty
-from rest_framework.utils.field_mapping import ClassLookupDict
 from rest_framework.metadata import SimpleMetadata
+from rest_framework.utils.field_mapping import ClassLookupDict
 
 
 class NgMetadata(SimpleMetadata):
