@@ -75,7 +75,7 @@ class NgMetadata(SimpleMetadata):
         """
         template_options = {
             'required': getattr(field, 'required', False),
-            'field': self.template_type_lookup[field],
+            'type': self.template_type_lookup[field],
         }
         field_info = OrderedDict([
             ('key', field.field_name),
