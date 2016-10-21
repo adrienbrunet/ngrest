@@ -41,16 +41,17 @@ export default class AppCtrl {
     this.AppService = AppService;
   }
 
-  getPeopleForm(){
+  getPeopleForm() {
+    this.waitingPeopleForm = true;
+    this.peopleFields = [];
     this.AppService.getPeopleForm().then(response => {
-      console.log(response);
       this.peopleFields = response.data.actions.POST;
     }).finally(() => {
-      self.waitingPeopleForm = false;
+      this.waitingPeopleForm = false;
     });
   }
 
-  submitPeopleForm(){
+  submitPeopleForm() {
     if (!this.people.pk) {
       this.AppService.createPeople(this.people).then(response => {
         console.log(response);
