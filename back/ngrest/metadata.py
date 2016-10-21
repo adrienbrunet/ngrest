@@ -96,8 +96,7 @@ class NgMetadata(SimpleMetadata):
         elif getattr(field, 'fields', None):
             field_info['children'] = self.get_serializer_info(field)
 
-        if (not field_info.get('read_only') and
-                hasattr(field, 'choices')):
+        if (not field_info.get('read_only') and hasattr(field, 'choices')):
             field_info['templateOptions']['options'] = [
                 {
                     'value': choice_value,
