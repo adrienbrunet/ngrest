@@ -66,6 +66,7 @@ class NgMetadata(SimpleMetadata):
         'label': 'label',
         'min_value': 'min_value',
         'max_value': 'max_value',
+        'default': 'default',
     }
 
     def get_serializer_info(self, serializer):
