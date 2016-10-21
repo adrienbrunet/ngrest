@@ -120,4 +120,17 @@ class NgMetadata(SimpleMetadata):
                 for choice_value, choice_name in field.choices.items()
             ]
 
+        if (
+            not field_info.get('read_only') and
+            isinstance(field, (serializers.RelatedField, serializers.ManyRelatedField)) and
+            hasattr(field, 'choices')
+        ):
+            field_info['templateOptions']['options'] = [
+                {
+                    'value': choice_value,
+                    'name': force_text(choice_name, strings_only=True)
+                }
+                for choice_value, choice_name in field.choices.items()
+            ]
+
         return field_info
