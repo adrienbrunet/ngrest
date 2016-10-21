@@ -25,8 +25,8 @@ class NgMetadata(SimpleMetadata):
         serializers.DateField: 'input',
         serializers.DateTimeField: 'input',
         serializers.TimeField: 'input',
-        serializers.ChoiceField: 'input',
-        serializers.MultipleChoiceField: 'input',
+        serializers.ChoiceField: 'select',
+        serializers.MultipleChoiceField: 'select',
         serializers.FileField: 'input',
         serializers.ImageField: 'input',
         serializers.ListField: 'input',
@@ -38,18 +38,18 @@ class NgMetadata(SimpleMetadata):
         serializers.Field: 'field',
         serializers.BooleanField: 'boolean',
         serializers.NullBooleanField: 'boolean',
-        serializers.CharField: 'string',
+        serializers.CharField: 'text',
         serializers.URLField: 'url',
         serializers.EmailField: 'email',
         serializers.RegexField: 'regex',
         serializers.SlugField: 'slug',
-        serializers.IntegerField: 'integer',
+        serializers.IntegerField: 'number',
         serializers.FloatField: 'float',
         serializers.DecimalField: 'decimal',
         serializers.DateField: 'date',
         serializers.DateTimeField: 'datetime',
         serializers.TimeField: 'time',
-        serializers.ChoiceField: 'choice',
+        serializers.ChoiceField: 'select',
         serializers.MultipleChoiceField: 'multiple choice',
         serializers.FileField: 'file upload',
         serializers.ImageField: 'image upload',
@@ -61,6 +61,8 @@ class NgMetadata(SimpleMetadata):
     option_name_lookup = {
         'help_text': 'placeholder',
         'label': 'label',
+        'min_value': 'min_value',
+        'max_value': 'max_value',
     }
 
     def get_serializer_info(self, serializer):
@@ -89,12 +91,7 @@ class NgMetadata(SimpleMetadata):
         field_info['type'] = self.label_lookup[field]
         field_info['templateOptions']['required'] = getattr(
             field, 'required', False)
-
-        # attrs = [
-        #     'read_only', 'label', 'help_text',
-        #     'min_length', 'max_length',
-        #     'min_value', 'max_value',
-        # ]
+        field_info['templateOptions']['type'] = self.template_type_lookup[field]
 
         for src_attr, dest_attr in self.option_name_lookup.items():
             value = getattr(field, src_attr, None)
@@ -110,10 +107,10 @@ class NgMetadata(SimpleMetadata):
         if (not field_info.get('read_only') and
             not isinstance(field, (serializers.RelatedField, serializers.ManyRelatedField)) and
                 hasattr(field, 'choices')):
-            field_info['choices'] = [
+            field_info['templateOptions']['options'] = [
                 {
                     'value': choice_value,
-                    'display_name': force_text(choice_name, strings_only=True)
+                    'name': force_text(choice_name, strings_only=True)
                 }
                 for choice_value, choice_name in field.choices.items()
             ]
