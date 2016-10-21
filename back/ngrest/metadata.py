@@ -73,14 +73,15 @@ class NgMetadata(SimpleMetadata):
         Given an instance of a serializer field, return a dictionary
         of metadata about it.
         """
+        template_options = {
+            'required': getattr(field, 'required', False),
+            'field': self.template_type_lookup[field],
+        }
         field_info = OrderedDict([
             ('key', field.field_name),
-            ('templateOptions', {}),
+            ('templateOptions', template_options),
         ])
         field_info['type'] = self.label_lookup[field]
-        field_info['templateOptions']['required'] = getattr(
-            field, 'required', False)
-        field_info['templateOptions']['type'] = self.template_type_lookup[field]
         if field.default is not empty:
             field_info['defaultValue'] = getattr(field, 'default', None)
 
