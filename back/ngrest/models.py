@@ -25,3 +25,18 @@ class People(models.Model):
 
     def __str__(self):
         return self.name
+
+# TODO
+# support:
+# - DateField
+# - DateTimeField
+# - DurationField
+# - FileField
+# - FileField and FieldFile
+# - FilePathField
+# - ImageField
+# - GenericIPAddressField
+# - SlugField
+# - TimeField
+# - URLField
+# - UUIDField
