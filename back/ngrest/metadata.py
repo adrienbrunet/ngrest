@@ -33,6 +33,7 @@ class NgMetadata(SimpleMetadata):
         serializers.ListField: 'input',
         serializers.DictField: 'input',
         serializers.Serializer: 'nested object',
+        serializers.RelatedField: 'select',
     })
 
     template_type_lookup = ClassLookupDict({
@@ -57,6 +58,7 @@ class NgMetadata(SimpleMetadata):
         serializers.ListField: 'list',
         serializers.DictField: 'nested object',
         serializers.Serializer: 'nested object',
+        serializers.RelatedField: 'select',
     })
 
     option_name_lookup = {
