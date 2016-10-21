@@ -49,4 +49,12 @@ export default class AppCtrl {
       self.waitingPeopleForm = false;
     });
   }
+
+  submitPeopleForm(){
+    if (!this.people.pk) {
+      this.AppService.createPeople(this.people).then(response => {
+        console.log(response);
+      });
+    }
+  }
 }

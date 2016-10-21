@@ -88,7 +88,7 @@ class NgMetadata(SimpleMetadata):
         of metadata about it.
         """
         field_info = OrderedDict([
-            ('name', field_name),
+            ('key', field_name),
             ('templateOptions', {}),
         ])
         field_info['type'] = self.label_lookup[field]

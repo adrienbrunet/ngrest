@@ -12,5 +12,9 @@ export default class AppService {
       },
     });
   }
+
+  createPeople (people) {
+    return this.$http.post('http://127.0.0.1:8000/api/peoples/', people);
+  }
 }
 
