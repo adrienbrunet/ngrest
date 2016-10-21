@@ -22,3 +22,6 @@ class People(models.Model):
     favorite_float = models.FloatField(validators=[MinValueValidator(-10), MaxValueValidator(10)],
                                        default=0,
                                        verbose_name="Favorite float between -10 and 10")
+
+    def __str__(self):
+        return self.name
