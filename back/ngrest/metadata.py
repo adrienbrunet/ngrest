@@ -5,6 +5,7 @@ from collections import OrderedDict
 from django.utils.encoding import force_text
 
 from rest_framework import serializers
+from rest_framework.fields import empty
 from rest_framework.utils.field_mapping import ClassLookupDict
 from rest_framework.metadata import SimpleMetadata
 
@@ -92,6 +93,8 @@ class NgMetadata(SimpleMetadata):
         field_info['templateOptions']['required'] = getattr(
             field, 'required', False)
         field_info['templateOptions']['type'] = self.template_type_lookup[field]
+        if field.default is not empty:
+            field_info['defaultValue'] = getattr(field, 'default', None)
 
         for src_attr, dest_attr in self.option_name_lookup.items():
             value = getattr(field, src_attr, None)
