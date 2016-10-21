@@ -44,7 +44,7 @@ export default class AppCtrl {
   getPeopleForm(){
     this.AppService.getPeopleForm().then(response => {
       console.log(response);
-      this.peopleFields = response;
+      // this.peopleFields = response;
     }).finally(() => {
       self.waitingPeopleForm = false;
     });

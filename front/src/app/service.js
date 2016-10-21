@@ -6,7 +6,10 @@ export default class AppService {
   getPeopleForm () {
     return this.$http({
       method: 'OPTIONS',
-      url: '/api/peoples/'
+      url: 'http://127.0.0.1:8000/api/peoples/',
+      headers: {
+        'Content-Type': 'application/json'
+      },
     });
   }
 }
