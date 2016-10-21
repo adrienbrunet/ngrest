@@ -5,11 +5,35 @@ from collections import OrderedDict
 from django.utils.encoding import force_text
 
 from rest_framework import serializers
-
+from rest_framework.utils.field_mapping import ClassLookupDict
 from rest_framework.metadata import SimpleMetadata
 
 
 class NgMetadata(SimpleMetadata):
+    label_lookup = ClassLookupDict({
+        serializers.Field: 'field',
+        serializers.BooleanField: 'boolean',
+        serializers.NullBooleanField: 'boolean',
+        serializers.CharField: 'input',
+        serializers.URLField: 'url',
+        serializers.EmailField: 'email',
+        serializers.RegexField: 'regex',
+        serializers.SlugField: 'slug',
+        serializers.IntegerField: 'integer',
+        serializers.FloatField: 'float',
+        serializers.DecimalField: 'decimal',
+        serializers.DateField: 'date',
+        serializers.DateTimeField: 'datetime',
+        serializers.TimeField: 'time',
+        serializers.ChoiceField: 'choice',
+        serializers.MultipleChoiceField: 'multiple choice',
+        serializers.FileField: 'file upload',
+        serializers.ImageField: 'image upload',
+        serializers.ListField: 'list',
+        serializers.DictField: 'nested object',
+        serializers.Serializer: 'nested object',
+    })
+
     def get_serializer_info(self, serializer):
         """
         Given an instance of a serializer, return a dictionary of metadata
@@ -31,12 +55,12 @@ class NgMetadata(SimpleMetadata):
         """
         field_info = OrderedDict([('name', field_name)])
         field_info['type'] = self.label_lookup[field]
-        field_info['required'] = getattr(field, 'required', False)
+        # field_info['required'] = getattr(field, 'required', False)
 
         attrs = [
-            'read_only', 'label', 'help_text',
-            'min_length', 'max_length',
-            'min_value', 'max_value',
+            # 'read_only', 'label', 'help_text',
+            # 'min_length', 'max_length',
+            # 'min_value', 'max_value',
         ]
 
         for attr in attrs:
