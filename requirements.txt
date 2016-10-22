@@ -3,3 +3,4 @@ djangorestframework
 markdown               # Markdown support for the browsable API.
 django-filter          # Filtering support
 django-cors-headers
+pytz

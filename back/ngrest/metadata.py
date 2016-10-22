@@ -49,7 +49,7 @@ class NgMetadata(SimpleMetadata):
         serializers.FloatField: 'float',
         serializers.DecimalField: 'decimal',
         serializers.DateField: 'date',
-        serializers.DateTimeField: 'datetime',
+        serializers.DateTimeField: 'datetime-local',
         serializers.TimeField: 'time',
         serializers.ChoiceField: 'select',
         serializers.MultipleChoiceField: 'multiple choice',
