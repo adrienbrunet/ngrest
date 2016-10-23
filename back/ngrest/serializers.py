@@ -11,7 +11,7 @@ class NgRestModelSerializer(serializers.ModelSerializer):
         Create regular model fields.
         Adds field default
         """
-        field_class, field_kwargs = super(PeopleSerializer, self).build_standard_field(field_name, model_field)
+        field_class, field_kwargs = super(NgRestModelSerializer, self).build_standard_field(field_name, model_field)
         if model_field.default is not NOT_PROVIDED:
             field_kwargs['default'] = model_field.default
         return field_class, field_kwargs
