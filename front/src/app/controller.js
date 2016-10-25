@@ -75,6 +75,7 @@ export default class AppCtrl {
   }
 
   submitPeopleForm() {
+    // Create
     if (!this.people.pk) {
       this.AppService.createPeople(this.people).then(response => {
         console.log(response);

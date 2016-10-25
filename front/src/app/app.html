@@ -1,22 +1,22 @@
 <main>
-	<div class="container" role="main">
+  <div class="container" role="main">
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
-      <h1>{{ app.title }}</h1>
+      <h1>{{ $ctrl.title }}</h1>
       <p>Yay, fuuuun.</p>
     </div>
 
     <div class="page-header">
       <h1>My Form</h1>
     </div>
-    <button class="btn btn-primary" ng-click="app.getPeopleForm();">Reload form</button>
+    <button class="btn btn-primary" ng-click="$ctrl.getPeopleForm();">Reload form</button>
     <br>
     <br>
-    <span ng-if="app.waitingPeopleForm" class="glyphicon glyphicon-repeat normal-right-spinner"></span>
-    <formly-form model="app.people" fields="app.peopleFields">
-  		<button type="submit" class="btn btn-default" ng-click="app.submitPeopleForm(app.people)">Submit</button>
-		</formly-form>
+    <span ng-if="$ctrl.waitingPeopleForm" class="glyphicon glyphicon-repeat normal-right-spinner"></span>
+    <formly-form model="$ctrl.people" fields="$ctrl.peopleFields">
+      <button type="submit" class="btn btn-default" ng-click="$ctrl.submitPeopleForm()">Submit</button>
+    </formly-form>
 
   </div> <!-- /container -->
 </main>

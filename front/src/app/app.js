@@ -13,19 +13,15 @@ import AppService from './service';
 import AppCtrl from './controller';
 
 
-let app = () => {
-  return {
-    template: require('./app.html'),
-    controller: 'AppCtrl',
-    controllerAs: 'app'
-  }
+let myComponent = {
+  template: require('./app.html'),
+  controller: AppCtrl,
 };
 
 const MODULE_NAME = 'app';
 
 angular.module(MODULE_NAME, ['ui.bootstrap', 'formly', 'formlyBootstrap'])
-  .directive('app', app)
-  .service('AppService', AppService)
-  .controller('AppCtrl', AppCtrl);
+  .component('app', myComponent)
+  .service('AppService', AppService);
 
 export default MODULE_NAME;
