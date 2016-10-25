@@ -22,10 +22,20 @@ cd back
 
 ## Front
 
-Launch the angular app on 127.0.0.1:8080 using ES6 and webpack
+### Angular1.x -->  `front` repository
+Launch the angular1.x app on 127.0.0.1:8080 using ES6 and webpack
 
 ```bash
 cd front
+npm install
+npm start
+```
+
+### Angular2 -->  `front2` repository
+Launch the angular1.x app on 127.0.0.1:3000 with webpack
+
+```bash
+cd front2
 npm install
 npm start
 ```
