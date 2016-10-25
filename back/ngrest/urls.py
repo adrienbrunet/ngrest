@@ -4,6 +4,7 @@ from rest_framework.routers import DefaultRouter
 
 from . import views
 
+
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
 router.register(r'peoples', views.PeopleViewSet)
@@ -12,4 +13,5 @@ router.register(r'peoples', views.PeopleViewSet)
 # Additionally, we include the login URLs for the browsable API.
 urlpatterns = [
     url(r'^', include(router.urls)),
+    url(r'^myform/$', views.FormView.as_view(), name="myform"),
 ]
