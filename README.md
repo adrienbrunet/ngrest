@@ -30,5 +30,13 @@ npm install
 npm start
 ```
 
+## Sqlite3 limitation
+
+With sqlite3 (by default with this repo), you may face problems with model field's validators.
+Example: a `PositiveIntegerField`, after being serializer, won't have `min_value=0` as an attribute.
+It's because sqlite does not enforce any limits on its fields.
+
+You might want to use another db. To use postgres, uncomment the requirements.txt line with postgres, pip install it, setup your postgres database and update the settings.py.
+
 ------------------------------------------------------------------
 Creators: Xavier Ordoquy [@xordoquy](https://github.com/xordoquy) and Adrien Brunet [@adrienbrunet](https://github.com/adrienbrunet)

@@ -88,8 +88,21 @@ WSGI_APPLICATION = 'back.wsgi.application'
 
 DATABASES = {
     'default': {
+        # SQLITE
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+        # # POSTGRES
+        # # we may face limitation with sqlite3, such as validators
+        # # for integerField (positiveIntegerField, SmallIntegerField etc..)
+        # # Here is a minimal example with a postgres config
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': 'ngrest',
+        # # The following settings are not used with sqlite3:
+        # 'USER': 'ngrest',
+        # 'PASSWORD': 'ngrest',
+        # 'HOST': '127.0.0.1',  # Empty for localhost through domain sockets or
+        #                         '127.0.0.1' for localhost through TCP.
     }
 }
 
