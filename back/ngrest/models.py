@@ -48,3 +48,6 @@ class People(models.Model):
 # - TimeField
 # - URLField
 # - UUIDField
+# Adds a hide attributes on the serializer?
+# Add extra attr to fields in serializer
+# Add placeholder?
