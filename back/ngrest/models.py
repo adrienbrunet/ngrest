@@ -33,6 +33,7 @@ class People(models.Model):
     secret_file = models.FileField(null=True)
     what_time_is_it = models.TimeField(default=DEFAULT_TIME)
     website = models.URLField(blank=True)
+    my_image = models.ImageField(null=True)
 
     def __str__(self):
         return self.name
