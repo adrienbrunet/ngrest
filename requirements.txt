@@ -5,3 +5,4 @@ django-filter          # Filtering support
 django-cors-headers
 pytz
 # psycopg2
+Pillow  # for ImageField
